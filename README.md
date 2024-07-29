@@ -53,8 +53,8 @@ A variávei AUTHORIZATION_TOKEN pode adicionar um valor de sua preferência.
 
 ### Requisitos
 
-Node 18.20.3
-Python 3+
+- Node 18.20.3
+- Python 3+
 
 Ao iniciar o projeto seguindo os scripts tanto do front, bff e serviço de ml, acesse o projeto em http://localhost:3000.
 
