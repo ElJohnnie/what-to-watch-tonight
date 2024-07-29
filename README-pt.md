@@ -1,76 +1,77 @@
-# What to watch tonight? Version 1
+# What to watch tonight? Versão 1
 
-![License](https://img.shields.io/badge/licença-MIT-blue.svg)
-![Version](https://img.shields.io/badge/versão-Em%20Desenvolvimento-yellow.svg)
+![Licença](https://img.shields.io/badge/licença-MIT-blue.svg)
+![Versão](https://img.shields.io/badge/versão-Em%20Desenvolvimento-yellow.svg)
 
-A movie recommendation system based on machine learning. It uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
+Um sistema de recomendação de filmes baseado em aprendizado de máquina. Se usa clustering para agrupar filmes similares com base em seus gêneros e ano de lançamento. A recomendação é feita com base nos clusters mais frequentes dos gêneros especificados e mapeados pelo humor do usuário, dentro da década fornecida.
 
 ## Índice
 
 <!-- - [Funcionalidades](#funcionalidades) -->
-- [Overview](#overview)
-- [Installation](#installation)
-- [Local Usage](#local-usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
+- [Visão Geral](#visão-geral)
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
+- [Contato](#contato)
 
-## Overview
+## Visão Geral
 
-### Brief Summary
-The system is composed of three layers: a graphical interface (front-end) developed in Next.js, a back-end for front-end (BFF) implemented in Node.js to manage requests from both the front-end and external APIs, and a clustering service in Python. In this initial version, the system uses a dataset with over 193,609 movies cataloged up to 2010.
+### Breve resumo
+O sistema é composto por três camadas: uma interface gráfica (front-end) desenvolvida em Next.js, um back-end for front-end (BFF) implementado em Node.js para gerenciar as requisições tanto do front-end quanto de APIs externas, e um serviço de clustering em Python. Nesta versão inicial, o sistema utiliza um dataset com mais de 193.609 filmes catalogados até o ano de 2010.
 
 ### Front-end
-Developed in Next.js, the front-end is designed for client-side rendering. It uses Context API to centralize all business logic. The interface presents five questions about mood, taste, and release year preferences of yours movies. After answering all questions, a request is sent to the BFF, which validates the answers and fetches an appropriate result.
+Desenvolvido em Next.js, o front-end é projetado para renderização no lado do cliente (Client-Side Rendering). Utiliza um Context API para centralizar toda a lógica de negócios. A interface apresenta cinco perguntas sobre humor, gosto e preferências de ano de lançamento. Após responder todas as perguntas, uma requisição é enviada ao BFF, que valida as respostas e busca um resultado apropriado.
 
 ### BFF
-The BFF, developed in Node.js, exposes HTTP routes using the Express framework. In addition to exposing routes, the project also acts as a client, using Axios to communicate with the machine learning service to fetch a movie. After retrieving the movie, an additional call is made to the TMDB API (https://www.themoviedb.org/) to retrieve additional information, such as movie description and images.
+O BFF, desenvolvido em Node.js, expõe rotas HTTP utilizando o framework Express. Além de expor as rotas, o projeto também atua como cliente, utilizando Axios para se comunicar com o serviço de machine learning para buscar um filme. Após a obtenção do filme, uma chamada adicional é feita para a API do TMDB (https://www.themoviedb.org/) para recuperar informações adicionais, como descrição e imagens do filme.
 
-### ML Service
-This recommendation system uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
+### Serviço de ML
+Este sistema de recomendação usa clustering para agrupar filmes similares com base em seus gêneros e ano de lançamento. A recomendação é feita com base nos clusters mais frequentes dos gêneros especificados e mapeados pelo humor do usuário, dentro da década fornecida.
 
 
-### Sequence Diagram
+### Diagrama de sequência
 ![sequence diagram](assets/sequence-diagram.png)
 
-### Some Considerations
-As this is still a development project, there are practices that need to be corrected.
+### Algumas considerações
+Se tratando de um software ainda em desenvolvimento, há práticas que devem ser corrigidas.
 
-## Installation
+## Instalação
 
-To install the project locally, follow these steps:
+Para instalar o projeto localmente, siga estas etapas:
 
-1. Clone the three repositories:
+1. Clone os três repositório:
 
-2. Navigate to the project directories:
+2. Navegue até os diretórios do projetos:
 
-3. Install Node dependencies in the front-end and BFF, and Python dependencies in the ML service:
+3. Instale as dependências Node no front e bff e de Python no serviço de ML:
 
-4. Change the environment variables and set the required values. To obtain the TMDB API Key, you can follow this documentation: https://developer.themoviedb.org/docs/getting-started. The AUTHORIZATION_TOKEN variable can be set to any value of your choice but must be the same in both the front-end and BFF layers.
+4. Altere as variáveis de ambiente e sete os valores com as necessárias, para conseguir a API Key do TMDB, você pode seguir essa doc: https://developer.themoviedb.org/docs/getting-started
+A variávei AUTHORIZATION_TOKEN pode adicionar um valor de sua preferência, mas deve ser do mesmo valor na camada de front quanto bff.
 
-## Local Usage
+## Uso local
 
-### Requirements
+### Requisitos
 
 - Node 18.20.3
 - Python 3+
 
-When starting the project following the scripts for the front-end, BFF, and ML service, access the project at http://localhost:3000.
+Ao iniciar o projeto seguindo os scripts tanto do front, bff e serviço de ml, acesse o projeto em http://localhost:3000.
 
-## Images
+## Imagens
 
 <img src="assets/image-2.png" alt="First question" width="500"/>
 <img src="assets/image-1.png" alt="alt text" width="500"/>
 <img src="assets/image.png" alt="Result" width="500"/>
 
-## Contributing
-Contributions are welcome! Follow the steps below to contribute:
+## Contribuição
+Contribuições são bem-vindas! Siga os passos abaixo para contribuir:
 
-Here you will find the submodules; fork the layer you would like to contribute to.
+Aqui se encontra os submódulos, faça fork da camada que gostaria de contribuir
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+## Licença
+Este projeto está licenciado sob a Licença MIT. Veja o arquivo LICENSE para mais detalhes.
 
-## Contact
+## Contato
 - LinkedIn - https://www.linkedin.com/in/jonatha-follmer/
 
