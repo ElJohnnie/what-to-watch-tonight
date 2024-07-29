@@ -1,3 +1,9 @@
 [submodule "wtwt-front-end"]
 	path = wtwt-front-end
 	url = https://github.com/ElJohnnie/wtwt-front-end
+[submodule "wtwt-back-end"]
+	path = wtwt-back-end
+	url = https://github.com/ElJohnnie/wtwt-back-end
+[submodule "wtwt-ml-model"]
+	path = wtwt-ml-model
+	url = https://github.com/ElJohnnie/wtwt-ml-model
