@@ -55,9 +55,10 @@ When starting the project following the scripts for the front-end, BFF, and ML s
 
 ## Images
 
-<img src="assets/image-2.png" alt="First question" width="500"/>
-<img src="assets/image-1.png" alt="alt text" width="500"/>
-<img src="assets/image.png" alt="Result" width="500"/>
+<img src="assets/image.png" alt="Main page" width="500"/>
+<img src="assets/image-1.png" alt="What is your favorite movie genre?" width="500"/>
+<img src="assets/image-2.png" alt="Result" width="500"/>
+<img src="assets/image-3.png" alt="Our intention" width="500"/>
 
 ## Contributing
 Contributions are welcome! Follow the steps below to contribute:
