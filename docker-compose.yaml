@@ -7,7 +7,7 @@ services:
     image: what-to-watch-tonight_frontend
     working_dir: /app
     env_file:
-      - ./wtwt-frontend/docker.env
+      - ./wtwt-front-end/docker.env
     expose:
       - 3000
     ports:
