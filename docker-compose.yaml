@@ -21,7 +21,7 @@ services:
       image: what-to-watch-tonight_backend
       working_dir: /app
       env_file:
-      - ./wtwt-backend/docker.env
+      - ./wtwt-back-end/docker.env
       expose:
       - 5000
       ports:
