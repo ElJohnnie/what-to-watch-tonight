@@ -16,7 +16,7 @@ services:
       - wtwt
 
   wtwt-back-end:
-      build: './wtwt-backend'
+      build: './wtwt-back-end'
       container_name: what-to-watch-tonight_backend
       image: what-to-watch-tonight_backend
       working_dir: /app
