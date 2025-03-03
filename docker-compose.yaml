@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  front-end:
+  wtwt-front-end:
     build: './wtwt-frontend'
     container_name: what-to-watch-tonight_frontend
     image: what-to-watch-tonight_frontend
@@ -15,7 +15,7 @@ services:
     networks:
       - wtwt
 
-  back-end:
+  wtwt-back-end:
       build: './wtwt-backend'
       container_name: what-to-watch-tonight_backend
       image: what-to-watch-tonight_backend
@@ -28,14 +28,14 @@ services:
       - 5000:5000
       networks:
       - wtwt
-  ML:
+  wtwt-ML:
     build: './wtwt-ml-model'
     container_name: what-to-watch-app
     working_dir: /app
     ports:
       - "${PORT:-5050}:${PORT:-5050}"
     env_file:
-      - .env.prod
+      - ./wtwt-ml-model/docker.env
     networks:
       - wtwt
 
