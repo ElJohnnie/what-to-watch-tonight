@@ -2,7 +2,7 @@ services:
   wtwt-front-end:
     build: './wtwt-front-end'
     container_name: what-to-watch-tonight_frontend
-    image: what-to-watch-tonight_frontend
+    image: what-to-watch-tonight
     working_dir: /app
     env_file:
       - ./envs/front-end.env
@@ -14,30 +14,30 @@ services:
       - wtwt
 
   wtwt-back-end:
-      build: './wtwt-back-end'
-      container_name: what-to-watch-tonight_backend
-      image: what-to-watch-tonight_backend
-      working_dir: /app
-      env_file:
+    build: './wtwt-back-end'
+    container_name: what-to-watch-tonight_backend
+    image: what-to-watch-tonight
+    working_dir: /app
+    env_file:
       - ./envs/back-end.env
-      expose:
+    expose:
       - 5000
-      ports:
-      - 5000:5000
-      networks:
+    networks:
       - wtwt
+
   wtwt-ml-model:
     build: './wtwt-ml-model'
     container_name: what-to-watch-app
+    image: what-to-watch-tonight
     working_dir: /app
-    ports:
-      - "${PORT:-5050}:${PORT:-5050}"
     env_file:
       - ./envs/ml.env
+    expose:
+      - 5050
     networks:
       - wtwt
 
 networks:
-    wtwt:
-        name: wtwt
-        driver: bridge
+  wtwt:
+    name: wtwt
+    driver: bridge
