@@ -4,8 +4,8 @@ services:
     container_name: what-to-watch-tonight_frontend
     image: what-to-watch-tonight-frontend
     working_dir: /app
-    env_file:
-      - ./envs/front-end.env
+    # env_file:
+    #   - ./envs/front-end.env
     expose:
       - 3000
     ports:
