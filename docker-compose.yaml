@@ -2,7 +2,7 @@ services:
   wtwt-front-end:
     build: './wtwt-front-end'
     container_name: what-to-watch-tonight_frontend
-    image: what-to-watch-tonight
+    image: what-to-watch-tonight-frontend
     working_dir: /app
     env_file:
       - ./envs/front-end.env
@@ -16,7 +16,7 @@ services:
   wtwt-back-end:
     build: './wtwt-back-end'
     container_name: what-to-watch-tonight_backend
-    image: what-to-watch-tonight
+    image: what-to-watch-tonight-backend
     working_dir: /app
     env_file:
       - ./envs/back-end.env
@@ -28,7 +28,7 @@ services:
   wtwt-ml-model:
     build: './wtwt-ml-model'
     container_name: what-to-watch-ml-model
-    image: what-to-watch-tonight
+    image: what-to-watch-tonight-ml-model
     working_dir: /app
     env_file:
       - ./envs/ml.env
