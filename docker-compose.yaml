@@ -1,6 +1,10 @@
 services:
   wtwt-front-end:
-    build: './wtwt-front-end'
+    build:
+      context: './wtwt-front-end'
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_AUTHORIZATION_TOKEN: ${NEXT_PUBLIC_AUTHORIZATION_TOKEN}
     container_name: what-to-watch-tonight_frontend
     image: what-to-watch-tonight-frontend
     working_dir: /app
@@ -9,7 +13,7 @@ services:
     expose:
       - 3000
     ports:
-      - 80:3000
+      - "80:3000"
     networks:
       - wtwt
 
