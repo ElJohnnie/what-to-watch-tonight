@@ -3,8 +3,9 @@ services:
     build:
       context: './wtwt-front-end'
       args:
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
-        NEXT_PUBLIC_AUTHORIZATION_TOKEN: ${NEXT_PUBLIC_AUTHORIZATION_TOKEN}
+            NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+            NEXT_PUBLIC_AUTHORIZATION_TOKEN: ${NEXT_PUBLIC_AUTHORIZATION_TOKEN}
+            NEXT_PUBLIC_THE_MOVIE_DB_IMAGE_BASE_URL: ${NEXT_PUBLIC_THE_MOVIE_DB_IMAGE_BASE_URL}
     container_name: what-to-watch-tonight_frontend
     image: what-to-watch-tonight-frontend
     working_dir: /app
