@@ -5,7 +5,7 @@ services:
     image: what-to-watch-tonight-frontend
     working_dir: /app
     env_file:
-      - ./envs/front-end.env
+      - ./envs/.front-end.env
     expose:
       - 3000
     ports:
@@ -19,7 +19,7 @@ services:
     image: what-to-watch-tonight-backend
     working_dir: /app
     env_file:
-      - ./envs/back-end.env
+      - ./envs/.back-end.env
     expose:
       - 5000
     networks:
@@ -31,7 +31,7 @@ services:
     image: what-to-watch-tonight-ml-model
     working_dir: /app
     env_file:
-      - ./envs/ml.env
+      - ./envs/.ml.env
     expose:
       - 5050
     networks:
