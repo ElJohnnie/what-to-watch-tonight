@@ -5,6 +5,14 @@
 
 A movie recommendation system based on machine learning. It uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
 
+## Important
+
+When cloning the repository, it is necessary to clone the submodules, to do this, run the following command:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Table of Contents
 
 <!-- - [Features](#features) -->

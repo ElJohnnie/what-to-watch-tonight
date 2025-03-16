@@ -5,6 +5,14 @@
 
 Um sistema de recomendação de filmes baseado em aprendizado de máquina. Se usa clustering para agrupar filmes similares com base em seus gêneros e ano de lançamento. A recomendação é feita com base nos clusters mais frequentes dos gêneros especificados e mapeados pelo humor do usuário, dentro da década fornecida.
 
+## Importante
+
+Ao clonar o respositório, é necessário clonar os submódulos, para isso, execute o seguinte comando:
+
+```bash
+git submodule update --init --recursive
+```
+
 ## Índice
 
 <!-- - [Funcionalidades](#funcionalidades) -->
