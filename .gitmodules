@@ -4,6 +4,6 @@
 [submodule "wtwt-back-end"]
 	path = wtwt-back-end
 	url = https://github.com/ElJohnnie/wtwt-back-end
-[submodule "wtwt-knn-algorithm"]
-	path = wtwt-knn-algorithm
-	url = https://github.com/ElJohnnie/wtwt-knn-algorithm
+[submodule "wtwt-kmeans-algorithm"]
+	path = wtwt-kmeans-algorithm
+	url = https://github.com/ElJohnnie/wtwt-kmeans-algorithm
