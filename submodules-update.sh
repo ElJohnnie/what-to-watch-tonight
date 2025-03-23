@@ -2,7 +2,7 @@
 
 GIT_USER=$(git config user.name)
 
-git submodule init
+git submodule --init
 
 git submodule update --remote --merge wtwt-back-end
 git submodule update --remote --merge wtwt-front-end
