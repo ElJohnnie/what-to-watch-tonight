@@ -31,12 +31,11 @@ O sistema é composto por três camadas: uma interface gráfica (front-end) dese
 ### Front-end
 Desenvolvido em Next.js, o front-end é projetado para renderização no lado do cliente (Client-Side Rendering). Utiliza um Context API para centralizar toda a lógica de negócios. A interface apresenta cinco perguntas sobre humor, gosto e preferências de ano de lançamento. Após responder todas as perguntas, uma requisição é enviada ao BFF, que valida as respostas e busca um resultado apropriado.
 
-### BFF
+### Back-end for Front-end (BFF)
 O BFF, desenvolvido em Node.js, expõe rotas HTTP utilizando o framework Express. Além de expor as rotas, o projeto também atua como cliente, utilizando Axios para se comunicar com o serviço de machine learning para buscar um filme. Após a obtenção do filme, uma chamada adicional é feita para a API do TMDB (https://www.themoviedb.org/) para recuperar informações adicionais, como descrição e imagens do filme.
 
-### Serviço de ML
+### KMEANS Algorithm
 Este sistema de recomendação usa clustering para agrupar filmes similares com base em seus gêneros e ano de lançamento. A recomendação é feita com base nos clusters mais frequentes dos gêneros especificados e mapeados pelo humor do usuário, dentro da década fornecida.
-
 
 ### Diagrama de sequência
 ![sequence diagram](assets/sequence-diagram.png)

@@ -34,7 +34,8 @@ Developed in Next.js, the front-end is designed for client-side rendering. It us
 ### BFF
 The BFF, developed in Node.js, exposes HTTP routes using the Express framework. In addition to exposing routes, the project also acts as a client, using Axios to communicate with the machine learning service to fetch a movie. After retrieving the movie, an additional call is made to the TMDB API (https://www.themoviedb.org/) to retrieve additional information, such as movie description and images.
 
-### ML Service
+### Back-end for Front-end (BFF)
+The KMEANS algorithm is used to group similar movies based on their genres and release year. The algorithm is implemented in Python and uses the scikit-learn library. The algorithm is trained using the dataset and the number of clusters is defined based on the number of genres.
 This recommendation system uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
 
 ### Sequence Diagram
