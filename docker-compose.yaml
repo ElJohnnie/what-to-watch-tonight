@@ -27,7 +27,7 @@ services:
       - wtwt
 
   wtwt-ml-model:
-    build: './wtwt-ml-model'
+    build: './wtwt-kmeans-algorithm'
     container_name: what-to-watch-ml-model
     image: what-to-watch-tonight-ml-model
     working_dir: /app
