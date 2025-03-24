@@ -31,12 +31,18 @@ The system is composed of three layers: a graphical interface (front-end) develo
 ### Front-end
 Developed in Next.js, the front-end is designed for client-side rendering. It uses Context API to centralize all business logic. The interface presents five questions about mood, taste, and release year preferences. After answering all questions, a request is sent to the BFF, which validates the answers and fetches an appropriate result.
 
-### BFF
-The BFF, developed in Node.js, exposes HTTP routes using the Express framework. In addition to exposing routes, the project also acts as a client, using Axios to communicate with the machine learning service to fetch a movie. After retrieving the movie, an additional call is made to the TMDB API (https://www.themoviedb.org/) to retrieve additional information, such as movie description and images.
+![front package diagram](assets/front-end.png)
 
 ### Back-end for Front-end (BFF)
+The BFF, developed in Node.js, exposes HTTP routes using the Express framework. In addition to exposing routes, the project also acts as a client, using Axios to communicate with the machine learning service to fetch a movie. After retrieving the movie, an additional call is made to the TMDB API (https://www.themoviedb.org/) to retrieve additional information, such as movie description and images.
+
+![bff class diagram](assets/back-end-class.png)
+
+### KMEANS Clustering Service
 The KMEANS algorithm is used to group similar movies based on their genres and release year. The algorithm is implemented in Python and uses the scikit-learn library. The algorithm is trained using the dataset and the number of clusters is defined based on the number of genres.
 This recommendation system uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
+
+![algorithm class diagram](assets/kmeans.png)
 
 ### Sequence Diagram
 ![Sequence Diagram](assets/sequence-diagram.png)
