@@ -1,6 +1,6 @@
 # What to watch tonight? Version 1
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License](https://img.shields.io/badge/license-EULA-blue.svg)
 ![Version](https://img.shields.io/badge/version-In%20Development-yellow.svg)
 
 A movie recommendation system based on machine learning. It uses clustering to group similar movies based on their genres and release year. Recommendations are made based on the most frequent clusters of the specified genres and mapped to the user's mood, within the provided decade.
