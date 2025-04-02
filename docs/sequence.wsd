@@ -9,18 +9,18 @@ participant "TMDB API" as TMDB
 User -> FrontEnd: Acessa a aplicação
 FrontEnd -> User: Exibe perguntas sobre humor, gosto e ano de lançamento
 User -> FrontEnd: Responde às perguntas
-FrontEnd -> BFF: Envia respostas (HTTP POST /recommendations)
-BFF -> MLService: Solicita recomendação de filme (HTTP GET /recommend)
-MLService -> BFF: Retorna filme recomendado
-BFF -> TMDB: Solicita informações adicionais do filme (HTTP GET /movie/{id})
+FrontEnd -> BFF: Envia respostas (HTTP GET /movie)
+BFF -> MLService: Solicita recomendação de filme (HTTP POST /movie)
+MLService -> BFF: Retorna filmes recomendados
+BFF -> TMDB: Solicita informações adicionais do filme (HTTP GET /movie/{...params})
 TMDB -> BFF: Retorna informações do filme
 BFF -> FrontEnd: Retorna filme recomendado com informações adicionais
 FrontEnd -> User: Exibe filme recomendado e mais um array de outras sugestões
 
 User -> FrontEnd: Solicita mais recomendações 
 FrontEnd -> BFF: Solicita mais recomendações com o array de sugestões (HTTP GET /more-recommendations)
-BFF -> TMDB: Solicita informações adicionais dos filmes e faz um loop acrescentando os valores (HTTP GET /movie/{id})
-TMDB -> BFF: Retorna informações dos filmes no loop
+BFF -> TMDB: Solicita informações adicionais dos filmes e faz um polling acrescentando os valores (HTTP GET /movie/{...params})
+TMDB -> BFF: Retorna informações dos filmes no polling
 BFF -> FrontEnd: Retorna mais filmes recomendados com informações adicionais
 FrontEnd -> User: Exibe mais filmes recomendados
 
