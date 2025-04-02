@@ -6,22 +6,26 @@ participant "BFF (Node.js)" as BFF
 participant "Machine Learning Service (Python)" as MLService
 participant "TMDB API" as TMDB
 
-User -> FrontEnd: Acessa a aplicação
-FrontEnd -> User: Exibe perguntas sobre humor, gosto e ano de lançamento
-User -> FrontEnd: Responde às perguntas
-FrontEnd -> BFF: Envia respostas (HTTP GET /movie)
-BFF -> MLService: Solicita recomendação de filme (HTTP POST /movie)
-MLService -> BFF: Retorna filmes recomendados
-BFF -> TMDB: Solicita informações adicionais do filme (HTTP GET /movie/{...params})
-TMDB -> BFF: Retorna informações do filme
-BFF -> FrontEnd: Retorna filme recomendado com informações adicionais
-FrontEnd -> User: Exibe filme recomendado e mais um array de outras sugestões
+User -> FrontEnd: Accesses the application
+FrontEnd -> User: Displays questions about mood, preferences, and release year
+User -> FrontEnd: Answers the questions
+FrontEnd -> BFF: Sends answers (HTTP GET /movie)
+BFF -> MLService: Requests movie recommendation (HTTP POST /movie)
+MLService -> BFF: Returns recommended movies
+BFF -> TMDB: Requests additional movie information (HTTP GET /movie/{...params})
+TMDB -> BFF: Returns movie information
+BFF -> FrontEnd: Returns recommended movie with additional information
+FrontEnd -> User: Displays recommended movie and an array of other suggestions
 
-User -> FrontEnd: Solicita mais recomendações 
-FrontEnd -> BFF: Solicita mais recomendações com o array de sugestões (HTTP GET /more-recommendations)
-BFF -> TMDB: Solicita informações adicionais dos filmes e faz um polling acrescentando os valores (HTTP GET /movie/{...params})
-TMDB -> BFF: Retorna informações dos filmes no polling
-BFF -> FrontEnd: Retorna mais filmes recomendados com informações adicionais
-FrontEnd -> User: Exibe mais filmes recomendados
+User -> FrontEnd: Requests more recommendations
+FrontEnd -> BFF: Requests more recommendations with the array of suggestions (HTTP GET /more-recommendations)
+
+loop Polling for additional movie information
+    BFF -> TMDB: Requests additional movie details (HTTP GET /movie/{...params})
+    TMDB -> BFF: Returns movie details
+end
+
+BFF -> FrontEnd: Returns more recommended movies with additional information
+FrontEnd -> User: Displays more recommended movies
 
 @enduml
