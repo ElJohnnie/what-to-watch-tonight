@@ -5,6 +5,8 @@ services:
     container_name: what-to-watch-tonight_frontend
     image: what-to-watch-tonight-frontend
     working_dir: /app
+    env_file:
+      - ./wtwt-front-end/.env
     expose:
       - 3000
     ports:
@@ -18,7 +20,7 @@ services:
     image: what-to-watch-tonight-backend
     working_dir: /app
     env_file:
-      - ./envs/.env.back-end
+      - ./wtwt-back-end/.env
     expose:
       - 5000
     ports:
@@ -32,7 +34,7 @@ services:
     image: what-to-watch-tonight-ml-model
     working_dir: /app
     env_file:
-      - ./envs/.env.python
+      - ./wtwt-kmeans-algorithm/.env
     expose:
       - 5050
     networks:
@@ -91,6 +93,34 @@ services:
       sh -c "certbot certonly --webroot --webroot-path=/var/www/certbot 
       --email seuemail@example.com --agree-tos --no-eff-email 
       -d seu-dominio.com -d www.seu-dominio.com"
+    networks:
+      - wtwt
+  keycloak:
+    image: quay.io/keycloak/keycloak:21.1
+    command: start-dev
+    ports:
+      - 8080:8080
+    env_file:
+      - ./keycloack/.env.keycloak
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - wtwt
+  
+  db:
+    image: mysql:8.0.30-debian
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql
+    env_file:
+      - ./mysql/.env.mysql
+    security_opt:
+      - seccomp:unconfined
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
     networks:
       - wtwt
 
