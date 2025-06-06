@@ -101,7 +101,7 @@ services:
     ports:
       - 8080:8080
     env_file:
-      - ./keycloack/.env.keycloak
+      - ./keycloak/.env.keycloak
     depends_on:
       db:
         condition: service_healthy
