@@ -1,3 +1,5 @@
 /envs
 .env.mysql
 .env.keycloak
+.docker
+certbot

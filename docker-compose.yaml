@@ -1,5 +1,6 @@
 services:
   wtwt-front-end:
+    platform: linux/amd64
     build:
       context: './wtwt-front-end'
     container_name: what-to-watch-tonight_frontend
@@ -15,6 +16,7 @@ services:
       - wtwt
 
   wtwt-back-end:
+    platform: linux/amd64
     build: './wtwt-back-end'
     container_name: what-to-watch-tonight_backend
     image: what-to-watch-tonight-backend
@@ -29,6 +31,7 @@ services:
       - wtwt
 
   wtwt-ml-model:
+    platform: linux/amd64
     build: './wtwt-kmeans-algorithm'
     container_name: what-to-watch-ml-model
     image: what-to-watch-tonight-ml-model
@@ -41,6 +44,7 @@ services:
       - wtwt
 
   jaeger:
+    platform: linux/amd64
     image: jaegertracing/all-in-one:latest
     container_name: jaeger
     ports:
@@ -51,6 +55,7 @@ services:
       - wtwt
 
   otel-collector:
+    platform: linux/amd64
     image: otel/opentelemetry-collector:latest
     container_name: otel-collector
     command: ["--config=/etc/otel-collector-config.yml"]
@@ -70,6 +75,7 @@ services:
       - wtwt
       
   nginx:
+    platform: linux/amd64
     image: nginx:latest
     container_name: nginx_proxy
     restart: always
@@ -84,6 +90,7 @@ services:
       - wtwt
 
   certbot:
+    platform: linux/amd64
     image: certbot/certbot
     container_name: certbot
     volumes:
@@ -96,6 +103,7 @@ services:
     networks:
       - wtwt
   keycloak:
+    platform: linux/amd64
     image: quay.io/keycloak/keycloak:21.1
     command: start-dev
     ports:
@@ -109,6 +117,7 @@ services:
       - wtwt
   
   db:
+    platform: linux/amd64
     image: mysql:8.0.30-debian
     volumes:
       - ./.docker/dbdata:/var/lib/mysql
