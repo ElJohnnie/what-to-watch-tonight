@@ -15,33 +15,33 @@ services:
     networks:
       - wtwt
 
-  # wtwt-back-end:
-  #   platform: linux/amd64
-  #   build: './wtwt-back-end'
-  #   container_name: what-to-watch-tonight_backend
-  #   image: what-to-watch-tonight-backend
-  #   working_dir: /app
-  #   env_file:
-  #     - ./wtwt-back-end/.env
-  #   expose:
-  #     - 5000
-  #   ports:
-  #     - "5000:5000"
-  #   networks:
-  #     - wtwt
+  wtwt-back-end:
+    platform: linux/amd64
+    build: './wtwt-back-end'
+    container_name: what-to-watch-tonight_backend
+    image: what-to-watch-tonight-backend
+    working_dir: /app
+    env_file:
+      - ./wtwt-back-end/.env
+    expose:
+      - 5000
+    ports:
+      - "5000:5000"
+    networks:
+      - wtwt
 
-  # wtwt-ml-model:
-  #   platform: linux/amd64
-  #   build: './wtwt-kmeans-algorithm'
-  #   container_name: what-to-watch-ml-model
-  #   image: what-to-watch-tonight-ml-model
-  #   working_dir: /app
-  #   env_file:
-  #     - ./wtwt-kmeans-algorithm/.env
-  #   expose:
-  #     - 5050
-  #   networks:
-  #     - wtwt
+  wtwt-ml-model:
+    platform: linux/amd64
+    build: './wtwt-kmeans-algorithm'
+    container_name: what-to-watch-ml-model
+    image: what-to-watch-tonight-ml-model
+    working_dir: /app
+    env_file:
+      - ./wtwt-kmeans-algorithm/.env
+    expose:
+      - 5050
+    networks:
+      - wtwt
 
   # jaeger:
   #   platform: linux/amd64
@@ -100,36 +100,37 @@ services:
   #     -d seu-dominio.com -d www.seu-dominio.com"
   #   networks:
   #     - wtwt
-  # keycloak:
-  #   platform: linux/amd64
-  #   image: quay.io/keycloak/keycloak:21.1
-  #   command: start-dev
-  #   ports:
-  #     - 8080:8080
-  #   env_file:
-  #     - ./keycloak/.env.keycloak
-  #   depends_on:
-  #     db:
-  #       condition: service_healthy
-  #   networks:
-  #     - wtwt
+
+  keycloak:
+    platform: linux/amd64
+    image: quay.io/keycloak/keycloak:21.1
+    command: start-dev
+    ports:
+      - 8080:8080
+    env_file:
+      - ./keycloak/.env.keycloak
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - wtwt
   
-  # db:
-  #   platform: linux/amd64
-  #   image: mysql:8.0.30-debian
-  #   volumes:
-  #     - ./.docker/dbdata:/var/lib/mysql
-  #   env_file:
-  #     - ./mysql/.env.mysql
-  #   security_opt:
-  #     - seccomp:unconfined
-  #   healthcheck:
-  #     test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-  #     interval: 5s
-  #     timeout: 10s
-  #     retries: 3
-  #   networks:
-  #     - wtwt
+  db:
+    platform: linux/amd64
+    image: mysql:8.0.30-debian
+    volumes:
+      - ./.docker/dbdata:/var/lib/mysql
+    env_file:
+      - ./mysql/.env.mysql
+    security_opt:
+      - seccomp:unconfined
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+    networks:
+      - wtwt
 
 
 networks:
