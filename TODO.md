@@ -1,8 +1,8 @@
 # TODO
 
-- [x] Code Analysis: Integration with SonarCloud for code quality
-- [x] Dockerization: Build and push images to Docker Hub
+- [ ] Connect api's with Docker
+- [ ] Dockerization: Build and push images to Docker Hub
+- [ ] Code Analysis: Integration with SonarCloud for code quality
 - [ ] Adjust Nginx configs
-- [ ] Kubernetes Deployment: Provision local cluster with Kind
 - [ ] Autentication with Keycloack (adjust docker compose and code)
-- [ ] Deploy
+- [ ] Kubernetes Deployment: Provision local cluster with Kind
